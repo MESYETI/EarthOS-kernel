@@ -22,31 +22,4 @@
 // File permissions are not yet implemented! Everything is writable by anyone.
 // This kernel can be used ONLY for debugging purposes.
 //
-include/"kernel/msg.pwsl"
-include/"kernel/panic.pwsl"
-include/"kernel/utils.pwsl
-include/"disk/fpt/fpt.pwsl"
-include/"fs/fs.pwsl"
-include/"fs/fssc2/fs.pwsl"
-include/"userspace/emc/emc.pwsl"
-include/"power/power.pwsl"
-include/"dev/dev.pwsl"
-include/"init/init.pwsl"
-//
-warp
-	clear
-	// Prevent kernel args from overwriting
-	listtobin/"arg_1"/"kab"
-	bintolist/kab/"kargs"
-	set/"kacount",arg_count
-	// Kernel start message
-	set/"$kstart",%time
-	kmsg/"",255255255,"EarthOS kernel loaded"
-	hidelogo
-endwarp
-// Process args
-kcmdline
-// Init
-kinit
-// Panic after init stops
-PANIC/"Attempted to kill init!"
+print/"moo",\n
